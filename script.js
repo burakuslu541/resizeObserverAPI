@@ -54,31 +54,6 @@ const menuObserver = new ResizeObserver((entries) => {
 
 document.querySelectorAll('.menu').forEach(menu => menuObserver.observe(menu));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // boxes
 const resizeObserver = new ResizeObserver((entries) => {
     for (let entry of entries) {
