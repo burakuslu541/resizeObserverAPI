@@ -4,41 +4,38 @@ const genres = [
     },
     {
         title: 'Fantastik',
-    }, 
+    },
     {
         title: 'Komedi',
-    }, 
+    },
     {
         title: 'Korku',
-    }, 
+    },
     {
         title: 'Gerilim',
     },
     {
         title: 'Aksiyon',
-    }, 
+    },
     {
         title: 'Macera',
-    }, 
+    },
     {
         title: 'Biyografi',
-    }, 
+    },
     {
         title: 'Belgesel',
-    }, 
+    },
 ]
-
-
-
 
 const menuObserver = new ResizeObserver((entries) => {
     entries.forEach(entry => {
         const visibles = Math.floor((entry.contentRect.width - 130) / 130);
         let html = '';
         if (visibles) {
-            html += genres.slice(0,visibles - 1).reduce((acc, genre) => {
+            html += genres.slice(0, visibles - 1).reduce((acc, genre) => {
                 return acc + `<a href="#" class="genre">${genre.title}</a>`
-            } , '');
+            }, '');
         }
         const invisible = genres.slice(visibles > 0 ? visibles - 1 : 0);
         if (invisible.length > 0) {
@@ -47,12 +44,12 @@ const menuObserver = new ResizeObserver((entries) => {
             html += `<nav>`;
             html += invisible.reduce((acc, genre) => {
                 return acc + `<a href="#" class="genre">${genre.title}</a>`
-            } , '');
+            }, '');
             html += `</nav>`;
             html += `</div>`;
         }
         entry.target.innerHTML = html;
-    } );
+    });
 });
 
 document.querySelectorAll('.menu').forEach(menu => menuObserver.observe(menu));
